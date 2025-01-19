@@ -201,6 +201,21 @@ namespace Assignment
 
     #endregion
 
- 
 
+    #region Part3
+
+    public class Duration
+    {
+        #region Q1 Define Class Duration To include Three Attributes Hours, Minutes and Seconds.
+
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+
+        #endregion
+
+     
+    }
+
+    #endregion
 }
