@@ -243,7 +243,25 @@ namespace Assignment
 
         #endregion
 
+        #region Q3 Define All Required Constructors to Produce this output:
 
+        public Duration(int H, int M, int S)
+        {
+            Hours = H;
+            Minutes = M;
+            Seconds = S;
+        }
+
+        public Duration(int Num)
+        {
+            Hours = Num / 3600;
+            Minutes = (Num - 3600 * Hours) / 60;
+            Seconds = (Num - (3600 * Hours + 60 * Minutes));
+        }
+
+        #endregion
+
+        
     }
 
     #endregion
