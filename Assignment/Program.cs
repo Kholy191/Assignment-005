@@ -35,7 +35,13 @@ namespace Assignment
             //}
             #endregion
 
-
+            #region Part_2 Define Class Maths that has four methods: Add, Subtract, Multiply, and Divide, each of them takes two parameters. Call each method in Main ().
+            //float X = 10; float Y = 20;
+            //Console.WriteLine(Maths.Add(Y, X));
+            //Console.WriteLine(Maths.Multiply(Y, X));
+            //Console.WriteLine(Maths.Subtract(Y, X));
+            //Console.WriteLine(Maths.Divide(Y, X));
+            #endregion
 
 
         }
@@ -168,5 +174,33 @@ namespace Assignment
 
     #endregion
 
+    #region Part_2 Second Project
+
+    public class Maths
+    {
+        public static Double Add(Double Num1, Double Num2)
+        {
+            return Num1 + Num2;
+        }
+
+        public static Double Subtract(Double Num1, Double Num2)
+        {
+            return Num1 - Num2;
+        }
+
+        public static Double Multiply(Double Num1, Double Num2)
+        {
+            return Num1 * Num2;
+        }
+
+        public static Double Divide(Double Num1, Double Num2)
+        {
+            return Num1 / Num2;
+        }
+    }
+
+    #endregion
+
+ 
 
 }
