@@ -214,7 +214,36 @@ namespace Assignment
 
         #endregion
 
-     
+        #region Q2 Override All System.Object Members (ToString, Equals,GetHasCode) .
+
+        public override string ToString()
+        {
+            return $"Hours: {Hours} Mins: {Minutes} Secs: {Seconds}";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Duration other)
+            {
+                if (this.Hours != other.Hours)
+                    return false;
+                else if (this.Minutes != other.Minutes)
+                    return false;
+                else if (this.Seconds != other.Seconds)
+                    return false;
+                else return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        #endregion
+
+
     }
 
     #endregion
