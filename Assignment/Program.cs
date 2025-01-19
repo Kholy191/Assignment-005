@@ -261,7 +261,240 @@ namespace Assignment
 
         #endregion
 
-        
+        #region Q4 Implement All required Operators overloading to enable this Code
+
+        static public Duration operator +(Duration Left, int Right)
+        {
+            Duration duration = new Duration(0, 0, 0);
+            Duration RightTime = new Duration(Right);
+            if ((Left is not null) & (RightTime is not null))
+            {
+                duration.Hours = Left.Hours + RightTime.Hours;
+                if ((Left.Minutes + RightTime.Minutes) > 60)
+                {
+                    duration.Hours += 1;
+                    duration.Minutes = (Left.Minutes + RightTime.Minutes) - 60;
+                }
+                else
+                {
+                    duration.Minutes = Left.Minutes + RightTime.Minutes;
+                }
+
+                if ((Left.Seconds + RightTime.Seconds) > 60)
+                {
+                    duration.Minutes += 1;
+                    duration.Seconds = (Left.Seconds + RightTime.Seconds) - 60;
+                }
+                else
+                {
+                    duration.Minutes = Left.Seconds + RightTime.Seconds;
+                }
+
+                return duration;
+            }
+            return duration;
+        }
+
+        static public Duration operator +(Duration Left, Duration Right)
+        {
+            Duration duration = new Duration(0, 0, 0);
+            if ((Left is not null) & (Right is not null))
+            {
+                duration.Hours = Left.Hours + Right.Hours;
+                if ((Left.Minutes + Right.Minutes) > 60)
+                {
+                    duration.Hours += 1;
+                    duration.Minutes = (Left.Minutes + Right.Minutes) - 60;
+                }
+                else
+                {
+                    duration.Minutes = Left.Minutes + Right.Minutes;
+                }
+
+                if ((Left.Seconds + Right.Seconds) > 60)
+                {
+                    duration.Minutes += 1;
+                    duration.Seconds = (Left.Seconds + Right.Seconds) - 60;
+                }
+                else
+                {
+                    duration.Minutes = Left.Seconds + Right.Seconds;
+                }
+
+                return duration;
+            }
+            return duration;
+        }
+
+        static public Duration operator +(int Left, Duration Right)
+        {
+            Duration duration = new Duration(0, 0, 0);
+            Duration LeftTime = new Duration(Left);
+            if ((LeftTime is not null) & (Right is not null))
+            {
+                duration.Hours = LeftTime.Hours + Right.Hours;
+                if ((LeftTime.Minutes + Right.Minutes) > 60)
+                {
+                    duration.Hours += 1;
+                    duration.Minutes = (LeftTime.Minutes + Right.Minutes) - 60;
+                }
+                else
+                {
+                    duration.Minutes = LeftTime.Minutes + Right.Minutes;
+                }
+
+                if ((LeftTime.Seconds + Right.Seconds) > 60)
+                {
+                    duration.Minutes += 1;
+                    duration.Seconds = (LeftTime.Seconds + Right.Seconds) - 60;
+                }
+                else
+                {
+                    duration.Minutes = LeftTime.Seconds + Right.Seconds;
+                }
+
+                return duration;
+            }
+            return duration;
+        }
+
+        static public Duration operator ++(Duration D)
+        {
+            D.Minutes += 1;
+            return D;
+        }
+
+        static public Duration operator --(Duration D)
+        {
+            D.Minutes -= 1;
+            return D;
+        }
+
+        static public Duration operator -(Duration Left, Duration Right)
+        {
+            int Num1 = 0, Num2 = 0;
+            Duration duration = new Duration(0, 0, 0);
+            if ((Left is not null) & (Right is not null))
+            {
+                Num1 = (Left.Hours) * 3600 + (Left.Minutes * 60) + Left.Seconds;
+                Num2 = (Right.Hours) * 3600 + (Right.Minutes * 60) + Right.Seconds;
+
+                if (Num2 > Num1)
+                {
+                    return new Duration(0, 0, 0); ;
+                }
+                else
+                {
+                    duration = new Duration((Num1 - Num2));
+                }
+                return duration;
+            }
+            return duration;
+        }
+
+        static public bool operator >(Duration Left, Duration Right)
+        {
+            int Num1 = 0, Num2 = 0;
+            if ((Left is not null) & (Right is not null))
+            {
+                Num1 = (Left.Hours) * 3600 + (Left.Minutes * 60) + Left.Seconds;
+                Num2 = (Right.Hours) * 3600 + (Right.Minutes * 60) + Right.Seconds;
+
+                if (Num2 > Num1)
+                {
+                    return false;
+                }
+                else if (Num2 < Num1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        static public bool operator <(Duration Left, Duration Right)
+        {
+            int Num1 = 0, Num2 = 0;
+            if ((Left is not null) & (Right is not null))
+            {
+                Num1 = (Left.Hours) * 3600 + (Left.Minutes * 60) + Left.Seconds;
+                Num2 = (Right.Hours) * 3600 + (Right.Minutes * 60) + Right.Seconds;
+
+                if (Num2 > Num1)
+                {
+                    return true;
+                }
+                else if (Num2 < Num1)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        static public bool operator <=(Duration Left, Duration Right)
+        {
+            int Num1 = 0, Num2 = 0;
+            if ((Left is not null) & (Right is not null))
+            {
+                Num1 = (Left.Hours) * 3600 + (Left.Minutes * 60) + Left.Seconds;
+                Num2 = (Right.Hours) * 3600 + (Right.Minutes * 60) + Right.Seconds;
+
+                if (Num2 >= Num1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        static public bool operator >=(Duration Left, Duration Right)
+        {
+            int Num1 = 0, Num2 = 0;
+            if ((Left is not null) & (Right is not null))
+            {
+                Num1 = (Left.Hours) * 3600 + (Left.Minutes * 60) + Left.Seconds;
+                Num2 = (Right.Hours) * 3600 + (Right.Minutes * 60) + Right.Seconds;
+
+                if (Num2 <= Num1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool operator true(Duration duration)
+        {
+            int Num1 = (duration.Hours) * 3600 + (duration.Minutes * 60) + duration.Seconds;
+            return Num1 != 0;
+        }
+
+        public static bool operator false(Duration duration)
+        {
+            int Num1 = (duration.Hours) * 3600 + (duration.Minutes * 60) + duration.Seconds;
+            return Num1 == 0;
+        }
+
+        public static explicit operator DateTime(Duration duration)
+        {
+            DateTime X = DateTime.MinValue;
+            X.AddHours(duration.Hours);
+            X.AddMinutes(duration.Minutes);
+            X.AddSeconds(duration.Seconds);
+            return X;
+        }
+        #endregion
+
+
     }
 
     #endregion
